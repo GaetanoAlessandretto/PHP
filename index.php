@@ -151,17 +151,14 @@ button{
 <body>
 <section>
   <div class="form-container">
-  <form id="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" onsubmit="return validateForm()">
+  <form id="form" action="ui.php" method="post" onsubmit="return validateForm()">
   <p>Complete the below form to get instant access </p>
   <div class="input-container">
         <input 
           type="text" 
           name="company_name" 
           aria-label="Company Name" 
-          placeholder="Company Name"
-          pattern="[\p{L},\.\-'\s]*"
-          maxlength="30"
-          required>
+          placeholder="Company Name">
         <p class="message"></p>
       </div>
       <div class="input-container">
@@ -169,10 +166,7 @@ button{
           type="text" 
           name="full_name" 
           aria-label="Full Name" 
-          placeholder="Full Name"
-          pattern="[\p{L},\.\-'\s]*"
-          maxlength="30"
-          required>
+          placeholder="Full Name">
         <p class="message"></p>
       </div>
       <div class="input-container">
@@ -180,21 +174,15 @@ button{
           type="text" 
           name="email" 
           aria-label="Email" 
-          placeholder="Email"
-          pattern="[\p{L},\.\-'\s]*"
-          maxlength="30"
-          required>
+          placeholder="Email">
         <p class="message"></p>
       </div>
       <div class="input-container">
         <input
-          type="email" 
+          type="text" 
           name="phone" 
           aria-label="Phone" 
-          placeholder="Phone"
-          pattern="[\w\.\-\+\/]+@[\w\.\-\+\/]+\.[\w\.\-\+\/]+"
-          maxlength="100"
-          required>
+          placeholder="Phone">
         <p class="message"></p>
       </div>
       <div class="input-container">
@@ -203,25 +191,27 @@ button{
           type="text" 
           name="choose_service" 
           aria-label="Choose Service" 
-          placeholder="Choose Service" 
-          pattern="(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d)(?=.*\W).{8,40}"
-          maxlength="40"
-          required>
+          placeholder="Choose Service" >
         <p id="password-message" class="message"></p>
       </div>
       <button type="submit">Send request</button>
     </form>
     <img src="immagineprogetto.PNG">
-    <script>
-        function validateForm() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
+    </section>
+<script>
+function validateForm() {
+    var name = document.getElementsByName("full_name")[0].value;
+    var email = document.getElementsByName("email")[0].value;
 
-            if (name == "" || email == "") {
-                alert("Inserisci tutti i campi!");
-                return false; 
-            }
-            return true; 
-        }
-    </script>
-    <?php
+    if (name == "" || email == "") {
+        alert("Inserisci tutti i campi!");
+        return false; 
+    }
+    return true; 
+   
+
+}
+</script>
+
+</body>
+</html>
